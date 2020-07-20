@@ -54,76 +54,34 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 // look for  all edge cases
 //search for a pattern
  
-class Solution {
-public:
-    vector<string> maxNumOfSubstrings(string s) {
-        int n = s.size();
-		vector<int> first(26 , -1) , last(26 , -1);
-		for(int i = 0; i < n ;i++){
-			int val = (int)(s[i] - 'a');
-			if(first[val] == -1){
-				first[val] = i;
-			} 
-			last[val] = i;
-		}
-		
-		vector<pair<int, pair<int,int>>> v(26);
-		
-		for(int i =0 ; i < 26; i++){
-			if(first[i] == -1)
-				continue;
-			
-			int left = first[i] , right = last[i]; 
-			for(int j = first[i] ; j<= last[i]; j++){
-				left = min(first[j] , left);
-				right = max(right , last[j]);
-			}
-			
-			v[i] = {(right - left + 1) , {left , right}};	
-		}
-		
-		sort(v.begin() , v.end());
-		
-		vector<bool> status(n , false);
-		vector<string> ans;
-		
-		for(int i =0 ; i < 26 ; i++){
-			int left = v[i].second.first;
-			int right = v[i].second.second;
-			bool ok = true;
-			for(int j = left ; j <= right ; j++){
-				if(status[j] == true){
-					ok = false;
-					break;
-				}
-			}
-			if(ok){
-				string add = "";
-				for(int j = left; j <= right ; j++ ){
-					status[j] = true;
-					add += s[j];
-				}
-				ans.push_back(add);
-			}
-			
-		}
-		
-		return ans;
-    }
-}; 
+
  
  
 	
 signed main(){
 	fast;
 	
-	Solution obj;
+	int n;
+	double p;
+	cin >> n >> p;
 	
-	string s;
-	cin >> s;
+	double ans = 1.0000;
 	
-	vector<string> ans = obj.maxNumOfSubstrings(s);
-	debug(ans);
+	
+	while(n >= 1){
+		if(n%2 == 1){
+			ans = ans*(1.0000-p) + (1.0000- ans)*(p);
+		}
+		p =  2.0000*(1.000000-p)*p;
+		n /= 2;
+		
+	}
+	cout<<fixed<<setprecision(9)<<ans;
+	
+	
+	
+	
+	
 	
 	return 0;
 }
