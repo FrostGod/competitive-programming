@@ -1,3 +1,2 @@
 # competitive-programming
-I will post solution to various problems here 
-problem 1 ->  uva 10667
+I will post solution to various data structure and algorithms related problems here 
