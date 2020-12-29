@@ -1,2 +1,2 @@
 # competitive-programming
-I will post solution to various data structure and algorithms related problems here 
+solutions to various data structure and algorithms related problems which were solved by me 
