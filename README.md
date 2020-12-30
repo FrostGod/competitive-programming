@@ -3,8 +3,13 @@ solutions to various data structure and algorithms related problems which were s
 
 # websites
 .codeforces
+
 .Atcoder
+
 .Leetcode
+
 .UVA
+
 .Codechef
+
 .cses
